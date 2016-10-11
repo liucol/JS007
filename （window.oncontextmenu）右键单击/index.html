@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#div1{
+				position: absolute;
+				width: 50px;
+				border: 1px solid black;
+				background: #ccc;
+				display: none;
+			}
+		</style>
+		<script>
+			window.oncontextmenu=function(){
+				
+				var odiv1=document.getElementById('div1');
+				
+				odiv1.style.display='block';
+				odiv1.style.top=100+"px";
+				odiv1.style.left=100+"px";
+				
+				//去掉默认的右键菜单(必须放在后面，这样才不会阻止自己的菜单)
+				return false;
+			}
+			//实现单击其他地方时，右键菜单消失
+			document.onclick=function(){
+				var odiv1=document.getElementById("div1");
+				
+				odiv1.style.display="none";
+			}
+		</script>
+	</head>
+	<body>
+	   <div id="div1">
+	   	<ul>
+	   		<li>aaa</li>		
+	   		<li>bbb</li>
+	   		<li>ccc</li>
+	   		<li>ddd</li>	
+	   	</ul>
+	   </div>
+	</body>
+</html>

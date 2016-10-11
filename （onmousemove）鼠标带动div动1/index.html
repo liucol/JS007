@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#div1{
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script>
+		    function getpos(ev){
+		    	var odiv1=document.getElementById('div1')
+		    	
+		    	var oscrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var oscrollLeft=document.documentElement.scrollLeft|document.body.scrollLeft;
+				
+				return{x:ev.clientX+oscrollLeft+'px',y:ev.clientY+oscrollTop+'px'};
+		    }
+			window.onmousemove=function(ev){
+				var oEvent=ev||event;
+				var odiv1=document.getElementById('div1')
+				
+				var ogetpos=getpos(oEvent);
+				odiv1.style.left=ogetpos.x;
+				odiv1.style.top=ogetpos.y;
+			}
+		</script>
+	</head>
+	<body style="height: 2000px;">
+		<div id="div1"></div>
+	</body>
+</html>
